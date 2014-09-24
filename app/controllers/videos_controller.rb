@@ -1,4 +1,4 @@
-class VideoController < ApplicationController
+class VideosController < ApplicationController
 
 	def index
   		@videos = Video.all
@@ -39,7 +39,7 @@ class VideoController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Destroy!' }
+      format.html { redirect_to video_url, notice: 'Destroy!' }
       format.json { head :no_content }
     end
   end

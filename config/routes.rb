@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
- # get 'videos/index', to: 'videos#index'
-  #post 'video/index', to: 'video#create' 
-  #resources :videos
+ #get 'videos/index', to: 'videos#index'
+ #post 'video/index', to: 'video#create' 
+  resources :videos
+  resources :plays
   #resources :videos
 
 
