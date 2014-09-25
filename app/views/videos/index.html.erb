@@ -1,10 +1,32 @@
 <h1>Filmpjes</h1>
 
-<p>Find me in app/views/video/index.html.erb</p>
-<% link_to "new video", new_video_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link</th>
+      <th colspan="3"></th>
 
-<p>Rammstein</p>
+    </tr>
+  </thead>
 
 
-<%= render 'form' %>
+
+
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.link.html_safe %></td>
+
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "EDIT", edit_video_path(video) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 

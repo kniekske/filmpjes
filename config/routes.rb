@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #resources :videos
 
 
-  root :to => 'video#index'
+ # root :to => 'video#index'
 
   #get '/videos/:id', to: 'videos#index'
 

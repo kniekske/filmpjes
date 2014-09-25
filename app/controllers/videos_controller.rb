@@ -25,24 +25,24 @@ class VideosController < ApplicationController
 
 def show
 	@video = Video.find(params[:id])
-end	
-
-  def create
-    @video = Video.new(video_params)
-
     respond_to do |format|
-      if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render :show, status: :created, location: @video }
-      else
-        format.html { render :new }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
+      format.html # show.html.erb
+      format.json { render json: @list }
     end
   end
 
+  def create
+    @video = Video.new(video_params)
+    @video.save
+    	redirect_to @video
+  end
 
+
+  def edit
+  	@video = Video.find(params[:id])
+  end
  def update
+ 	@video = Video.find(params[:id])
     respond_to do |format|
       if @video.update(video_params)
         format.html { redirect_to @video, notice: 'Update' }
@@ -54,13 +54,19 @@ end
     end
   end
 
-  def destroy
-    @video.destroy
-    respond_to do |format|
-      format.html { redirect_to video_url, notice: 'Destroy!' }
-      format.json { head :no_content }
+  def delete
+  	@video = Video.find(params[:id])
+    @video.delete
+ 	redirect_to @video
     end
-  end
+
+
+    def destroy
+    @video = Video.find(params[:id])
+    @video.destroy
+    redirect_to @video
+    end
+
 
 
   private
