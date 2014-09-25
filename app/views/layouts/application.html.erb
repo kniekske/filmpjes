@@ -1,14 +1,28 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Filmpjes</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
+  <!-- start stylesheets -->
+
+  <%= stylesheet_link_tag    "application", :media => "all", 'data-turbolinks-track' => true %>
+
+  <!-- end stylesheets, start javascript -->
+
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
+  <!-- end javascript, start csrf -->
+
+  <%= csrf_meta_tags %>
+
+  <!-- end csrf -->
+
+
+<!-- start yield -->
 <%= yield %>
+<!-- end yield -->
 
 </body>
 </html>
